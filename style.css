@@ -1,0 +1,213 @@
+#Ach {
+    background-color: lightcyan;
+    padding: 20px;
+}
+
+#ach{
+    margin: 20px;
+}
+
+#Pa {
+    background-color: aliceblue;
+    padding: 20px;
+}
+
+#pa{
+    margin: 20px;
+    background-color: aliceblue;
+}
+
+#trophy {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    background-size: auto;
+    
+}
+
+#carouselExampleCaptions {
+    background-size: contain;
+}
+
+.page {
+    background-color: bisque;
+}
+ .col-sm-3{
+    background-color: lightyellow;
+    margin-left: 0%;
+    padding-left: 0%;
+ }
+ 
+.list-group-item 
+{
+    margin-left: 0px;
+}
+
+.scroll-bg{
+    background: lightyellow;
+    padding: 0px;
+    margin: 0px;
+
+
+}
+.scroll-div{
+    height: 300px;
+    width: 150px;
+    color: darkgray;
+    overflow: hidden;
+    overflow-y: scroll;
+
+}
+
+.scroll-object{
+    height: 200px;
+    
+    padding: 20px;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+#new{
+    background-color: bisque;
+}
+#vid{
+    margin-top: 0px;
+    background-color: lavender;
+}
+#circ{
+    background-color: aliceblue;
+}
+
+.col-sm-4{
+   background-color: mintcream;
+   margin-right: 0%;
+   padding-right: 0%;
+}
+#bar{
+    background-color: greenyellow;
+}
+
+@import url('//netdna.bootstrapcdn.com/twitter-bootstrap/2.0.4/css/bootstrap-combined.min.css');
+
+#myCarousel {
+  margin-top: 40px;
+}
+
+.carousel-linked-nav,
+.item img {
+  display: block; 
+  margin: 0 auto;
+}
+
+.carousel-linked-nav {
+  width: 120px;
+  margin-bottom: 20px;   
+}
+
+.prev, .next {
+    cursor: pointer;
+}
+
+.carousel-container {
+    width: 300px;
+    overflow: hidden;
+}
+
+/* Styling for the carousel */
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+/* Styling for individual slides */
+.carousel-slide {
+    min-width: 300px;
+    height: 200px;
+    margin-right: 10px;
+    background-color: lightblue;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Styling for pagination and buttons */
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.page, .prev-next {
+    cursor: pointer;
+    margin-right: 10px;
+    padding: 5px 10px;
+    background-color: lightgray;
+}
+
+.prev-next:hover, .page:hover {
+    background-color: lightblue;
+
+}
+
+.content {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+.pagination {
+    margin-top: 20px;
+}
+.pagination button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+.pagination button:hover {
+    background-color: #0056b3;
+}
+.disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+
+#new {
+padding: 0%;
+margin: 0 auto;
+background-color: lavender;
+}
+
+.page {
+    display: none;
+}
+
+/* Styles for the current page */
+.page.active {
+    display: block;
+}
+
+@media (max-width: 768px) {
+    
+
+    .con {
+        flex-direction: column;
+    }
+
+    .col-sm-3{
+        order: 3;
+    }
+
+    .col-sm-5 {
+        order: 1;
+    }
+
+    .col-sm-4 {
+        order: 2;
+    }
+
+    footer{
+        order: 4;
+    }
+}

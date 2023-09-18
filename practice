@@ -1,0 +1,302 @@
+<div id="vid">
+      <b><h8>VIDEOS</h8></b>
+         <div class="scroll-bg">
+          <div class="scroll-div">
+            <div class="scroll-object">
+             <iframe width="300" height="200" src="https://www.youtube.com/embed/vMjEtTOs67E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+             <iframe width="300" height="200" src="https://www.youtube.com/embed/E74HxrwXan0" title="How to Make an Employee Training Plan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            <iframe width="300" height="200" src="https://www.youtube.com/embed/Cq2Q2rD9wI4?si=DxKXdVw1pFPOiYBS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+          </div>
+          </div>
+        </div> 
+       </div>
+
+       //whats new
+const carousel = document.getElementById('carousel');
+        const pagination = document.getElementById('pagination');
+        const slides = carousel.querySelectorAll('.carousel-slide');
+        const pages = pagination.querySelectorAll('.page');
+        const prevBtn = document.getElementById('prevBtn');
+        const nextBtn = document.getElementById('nextBtn');
+
+        let currentIndex = 0;
+
+        function updateCarousel() {
+            const slideWidth = slides[0].offsetWidth;
+            const offset = -currentIndex * slideWidth;
+            carousel.style.transform = `translateX(${offset}px)`;
+        }
+
+        function setActivePage(index) {
+            pages.forEach((page, i) => {
+                if (i === index) {
+                    page.classList.add('active');
+                } else {
+                    page.classList.remove('active');
+                }
+            });
+        }
+
+        function goToSlide(index) {
+            if (index < 0) {
+                index = 0;
+            } else if (index >= slides.length) {
+                index = slides.length - 1;
+            }
+
+            currentIndex = index;
+            updateCarousel();
+            setActivePage(index);
+        }
+
+        pages.forEach((page, index) => {
+            page.addEventListener('click', () => {
+                goToSlide(index);
+            });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            goToSlide(currentIndex - 1);
+        });
+
+        nextBtn.addEventListener('click', () => {
+            goToSlide(currentIndex + 1);
+        });
+
+        // Initial setup
+        setActivePage(currentIndex);
+        updateCarousel();
+
+        //vid
+        <div class="scroll-bg">
+            <div class="scroll-div">
+              <div class="scroll-object">
+                <div class="video list">
+                <iframe width="300" height="200" src="https://www.youtube.com/embed/vMjEtTOs67E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+               <iframe width="300" height="200" src="https://www.youtube.com/embed/E74HxrwXan0" title="How to Make an Employee Training Plan" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+              <iframe width="300" height="200" src="https://www.youtube.com/embed/Cq2Q2rD9wI4?si=DxKXdVw1pFPOiYBS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+            </div>
+            <div class="video-container">
+              <iframe id="video-player" width="100%" height="400" src="https://www.youtube.com/embed/VIDEO_ID" frameborder="0" allowfullscreen></iframe>
+          </div>
+            </div>
+            </div>
+          </div>
+
+          //vid
+
+// Function to handle video selection
+function selectVideo(event) {
+    const videoId = event.target.getAttribute("data-video-id");
+    const videoPlayer = document.getElementById("video-player");
+    videoPlayer.src = `https://www.youtube.com/embed/${videoId}`;
+}
+
+// Attach click event listeners to video thumbnails
+const videoThumbnails = document.querySelectorAll(".video-list iframe");
+videoThumbnails.forEach((iframe) => {
+    iframe.addEventListener("click", selectVideo);
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+    const itemList = document.querySelectorAll(".item");
+    const miniplayer = document.querySelector(".miniplayer");
+
+    itemList.forEach(item => {
+        item.addEventListener("click", () => {
+            // Handle item click here
+            miniplayer.innerHTML = `Miniplayer Content for ${item.textContent}`;
+            miniplayer.style.right = "0";
+        });
+    });
+
+    const scrollThumb = document.querySelector(".scroll-thumb");
+    const scrollBar = document.querySelector(".scroll-bar");
+    const scrollContainer = document.querySelector(".scroll-container");
+
+    scrollThumb.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        const startY = e.clientY;
+        const startTop = scrollThumb.offsetTop;
+
+        document.addEventListener("mousemove", onMouseMove);
+        document.addEventListener("mouseup", onMouseUp);
+
+        function onMouseMove(e) {
+            const deltaY = e.clientY - startY;
+            const maxTop = scrollBar.clientHeight - scrollThumb.clientHeight;
+            const newY = Math.min(maxTop, Math.max(0, startTop + deltaY));
+
+            scrollThumb.style.top = newY + "px";
+
+            const scrollRatio = newY / maxTop;
+            const scrollMax = scrollContainer.scrollHeight - scrollContainer.clientHeight;
+            scrollContainer.scrollTop = scrollRatio * scrollMax;
+        }
+
+        function onMouseUp() {
+            document.removeEventListener("mousemove", onMouseMove);
+            document.removeEventListener("mouseup", onMouseUp);
+        }
+    });
+});
+
+//css
+.vid {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+}
+.video-list {
+    width: 30%;
+    overflow-y: auto;
+}
+.video-list iframe {
+    width: 100%;
+    height: 200px;
+    margin-bottom: 10px;
+    cursor: pointer;
+}
+.video-container {
+    width: 68%;
+}
+
+
+<div class="col-sm-2">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+view
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="exampleModalLabel">Sale</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary" style="background-color: aliceblue;"><a href="laptop img.webp" target="_blank" style="text-decoration: none;">Proceed</a></button>
+</div>
+</div>
+</div>
+</div>
+  </div>
+
+  <div class="col-sm-2">
+    <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+view
+</button>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal-dialog">
+<div class="modal-content">
+<div class="modal-header">
+<h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+</div>
+<div class="modal-body">
+Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum
+</div>
+<div class="modal-footer">
+<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+<button type="button" class="btn btn-primary">Proceed</button>
+</div>
+</div>
+</div>
+</div>
+  </div>
+
+
+  <div><b><h8>WHAT'S NEW</h8></b>
+    <div class="carousel-container" id="new">
+      <div class="carousel-slide" id="slide1" style="background-color: lavender;">
+          
+          <p><a href="whats new.jpg" style="text-decoration: none; color: black;" >*I've rented a car in Las Vegas and have reserved a hotel in Twentynine Palms which is just north of Joshua Tree.</a> <br><a href="whats new.jpg" style="text-decoration: none; color: black;" > *I'll drive from Las Vegas through Mojave National Preserve and possibly do a short hike on our way down.</a><br><a href="whats new.jpg" style="text-decoration: none; color: black;" >*Then spend all day on Monday at Joshua Tree.</a> </p>
+      </div>
+      <div class="carousel-slide" id="slide2" style="background-color: lavender;">
+          
+          <p><a href="whats new.jpg" style="text-decoration: none; color: black;" >*It was going to take at least an hour to get it under control and she was sick and tired of it.</a><br><a href="whats new.jpg" style="text-decoration: none; color: black;" >*She looked at the control panel and knew there was nothing that would ever get it back into working order.V<br><a href="whats new.jpg" style="text-decoration: none; color: black;" ></a>*She was the first and it was not clear this would also be her last.</p>
+      </div>
+      <div class="carousel-slide" id="slide3" style="background-color: lavender;">
+          
+          <p><a href="whats new.jpg" style="text-decoration: none; color: black;" >*She was the first and it was not clear this would also be her last.</a><br><a href="whats new.jpg" style="text-decoration: none; color: black;" >*He wondered if he should disclose the truth to his friends.</a><br><a href="whats new.jpg" style="text-decoration: none; color: black;" >*It was time to decide which way to go.</a></p>
+      </div>
+  </div>
+  
+  
+  <div class="navigation">
+      <button onclick="prevSlide()">Previous</button>
+      <button onclick="showslide1(1)">1</button>
+      <button onclick="showslide2(2)">2</button>
+      <button onclick="showslide3(3)">3</button>
+      <button onclick="nextSlide()">Next</button>
+  </div>
+  </div>
+
+  //whats new
+let slideIndex = 1;
+showSlide(slideIndex);
+
+// Automatic slide change interval (in milliseconds)
+const slideInterval = 5000; // 5 seconds
+
+// Function to display a specific slide
+function showSlide(n) {
+    const slides = document.getElementsByClassName("carousel-slide");
+
+    // Wrap around when reaching the first or last slide
+    if (n > slides.length) {
+        slideIndex = 1;
+    }
+    if (n < 1) {
+        slideIndex = slides.length;
+    }
+
+    // Hide all slides
+    for (let i = 0; i < slides.length; i++) {
+        slides[i].style.display = "none";
+    }
+
+    // Display the current slide
+    slides[slideIndex - 1].style.display = "block";
+}
+
+// Function to display the next slide
+function nextSlide() {
+    showSlide(slideIndex += 1);
+}
+
+// Function to display the previous slide
+function prevSlide() {
+    showSlide(slideIndex -= 1);
+}
+
+// Automatically change slides at a specified interval
+setInterval(nextSlide, slideInterval);
+
+<div class="row" id="SR">
+    <div class="col-sm-4" id="sr1">Emp. No.</div>
+    <div class="col-sm-8" id="sr2">103275W</div>
+  </div>
+  <div class="row" id="SR">
+    <div class="col-sm-4" id="sr1">Title</div>
+    <div class="col-sm-8" id="sr2">2BHK Flat available for rent in Faridabad, Floral Enclave</div>
+  </div>
+  <div class="row" id="SR">
+    <div class="col-sm-4" id="sr1"></div>
+    <div class="col-sm-8" id="sr2"></div>
+  </div>
+  <div class="row" id="SR">
+    <div class="col-sm-4" id="sr1">Image</div>
+    <div class="col-sm-8" id="sr2"></div>
+  </div>
+  
